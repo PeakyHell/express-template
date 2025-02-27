@@ -1,3 +1,4 @@
+require("dotenv").config()
 const { Pool } = require("pg")
 
 let config = process.env.NODE_ENV == "production" ? {
@@ -13,7 +14,6 @@ let config = process.env.NODE_ENV == "production" ? {
 let db
 try {
     db = new Pool(config)
-    await db.connect()
     console.log("Connection to database established !")
 }
 catch (err) {
